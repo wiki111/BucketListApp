@@ -15,11 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserDAO extends JdbcDaoSupport{
   @Autowired
   public UserDAO(DataSource dataSource){
-    this.setDataSource(dateSource);
+    this.setDataSource(dataSource);
   }
 
-  public User findUserAccount(String userName) {
-    String sqlQuery = UserMapper.STRING_BASE_SQL + " where name = ? ";
+  public AppUser findUserAccount(String userName) {
+    String sql = UserMapper.STRING_BASE_SQL + " where name = ? ";
 
     Object[] params = new Object[]{userName};
     UserMapper mapper = new UserMapper();

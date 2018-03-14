@@ -1,5 +1,6 @@
 package bucketlistapp.security;
 
+import bucketlistapp.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,13 +37,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/login");
 
-    http.authorizeRequests.and().formLogin()
-      .loginProcessingUrl("/security_check")
+    http.authorizeRequests().and().formLogin()
+      .loginProcessingUrl("/j_spring_security_check")
       .loginPage("/login")
       .defaultSuccessUrl("/user_profile")
       .failureUrl("/login?error=true")
       .usernameParameter("username")
       .passwordParameter("password")
-      .and().logoutUrl("logout").logoutSuccessUrl("/logoutSuccessful");
+      .and().logout().logoutUrl("logout").logoutSuccessUrl("/logoutSuccessful");
   }
 }

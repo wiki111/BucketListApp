@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
   @Autowired
-   private AppUserDAO userDAO;
+   private UserDAO userDAO;
 
    @Override
    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
@@ -32,14 +32,11 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
        List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
 
-      for (String role : roleNames) {
-          GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
-          grantList.add(authority);
-      }
+       GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
+       grantList.add(authority);
 
-
-       UserDetails userDetails = (UserDetails) new User(user.getUserName(),
-               user.getEncrytedPassword(), grantList);
+       UserDetails userDetails = (UserDetails) new User(user.getName(),
+               user.getEncryptedPassword(), grantList);
 
        return userDetails;
    }

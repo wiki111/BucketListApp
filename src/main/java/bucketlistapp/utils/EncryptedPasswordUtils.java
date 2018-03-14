@@ -2,7 +2,7 @@ package bucketlistapp.utils;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-public class EncrytedPasswordUtils {
+public class EncryptedPasswordUtils {
 
     // Encrypt Password with BCryptPasswordEncoder
     public static String encrytePassword(String password) {
@@ -13,7 +13,7 @@ public class EncrytedPasswordUtils {
     public static void main(String[] args) {
         String password = "123";
         String encrytedPassword = encrytePassword(password);
- 
+
         System.out.println("Encryted Password: " + encrytedPassword);
     }
 

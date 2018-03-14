@@ -5,9 +5,9 @@ public class AppUser{
   private String name;
   private String encryptedPassword;
 
-  public User(){}
+  public AppUser(){}
 
-  public User(Long id, String name, String encryptedPassword){
+  public AppUser(Long id, String name, String encryptedPassword){
     this.id = id;
     this.name = name;
     this.encryptedPassword = encryptedPassword;
